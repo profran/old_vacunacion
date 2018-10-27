@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+#register {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar {
+  padding: 0 10%;
+  display: grid;
+  grid-template-columns: 2fr 11fr 1fr 1fr;
+  grid-row: 1fr;
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  height: 2.5em;
+  margin: 0.2em;
+  padding: 0 2.5em;
+  background-color: #595C68;
+  color: white;
+  border-radius: 8px;
+  border: 0;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transition: 0.4s;
+  background-color: #757575;
+}
+
+.primary {
+  background-color: #26A69A;
+}
+
+.page-layout {
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+    "main main"
+    "description description"
+    "contact footer"
+    "contact footer";
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 80vh;
+  grid-area: main;
+  padding: 0 10%;
+  background: linear-gradient(rgba(255, 0, 0, 0.10), rgba(200, 0, 0, 0.45)), url('../media/vacunacion.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.inner {
+  color: white;
+  flex-direction: column;
+}
+
+.description {
+  height: auto;
+  grid-area: description;
+  color: white;
+  display: grid;
+  grid-template-columns: 10fr 7fr;
+  grid-template-areas:
+    "desktop mobile"
+    "desktop mobile";
+}
+
+.component {
+  width: 100%;
+  height: 50vh;
+  transition: 0.4s;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.component::after {
+  background-color: #26A69A;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay:after {
+  position: absolute;
+  content:"";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0.5;
+  color: black;
+  transition: 0.4s;
+}
+
+.overlay:hover:after  {
+  opacity: 0;
+  color: rgba(0, 0, 0, 0);
+  transition: 0.4s;
+}
+
+.mobile {
+  grid-area: mobile;
+  background: url('../media/mobile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.desktop {
+  grid-area: desktop;
+  background: url('../media/desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text {
+  z-index: 3;
+}
+
+.contact {
+  grid-area: contact;
+  background-color: green;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: yellow;
+}
+
+@media screen and (max-width: 800px) {
+  .page-layout {
+    grid-template-areas:
+      "main main"
+      "description description"
+      "contact contact"
+      "footer footer";
+  }
+
+  .description {
+    grid-template-areas:
+      "desktop desktop"
+      "mobile mobile";
+  }
+}
